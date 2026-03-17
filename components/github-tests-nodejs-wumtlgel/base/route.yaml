@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: github-tests-nodejs-wumtlgel
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: github-tests-nodejs-wumtlgel 
+  name: github-tests-nodejs-wumtlgel
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: github-tests-nodejs-wumtlgel
+    weight: 100 
